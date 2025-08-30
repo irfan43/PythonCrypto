@@ -29,7 +29,9 @@ def generate_keys(private_key_path="private.pem", public_key_path="public.pem"):
 
 
 def load_private_key(path="private.pem"):
-    """Loads a private key from a PEM file."""
+    """
+    Loads a private key from a PEM file.
+    """
     if not os.path.exists(path):
         print(f"Error: Private key file not found at '{path}'")
         return None
@@ -42,7 +44,9 @@ def load_private_key(path="private.pem"):
 
 
 def load_public_key(path="public.pem"):
-    """Loads a public key from a PEM file."""
+    """
+    Loads a public key from a PEM file.
+    """
     if not os.path.exists(path):
         print(f"Error: Public key file not found at '{path}'")
         return None
@@ -55,6 +59,7 @@ def load_public_key(path="public.pem"):
 
 
 # Signing and Verification Functions
+
 def sign_message(private_key_path, message):
     """
     Signs a given message using the private key.
@@ -89,9 +94,18 @@ def verify_signature(public_key_path, signature_base64, message):
             print(f"❌ Error: {e}")
 
 
+# Email Signature and Verification
+
 def verify_signature_email(pub, signature, message):
     """
-    Verifies a signature against a message using the public key.
+    Verifies a signature against an email using the public key.
+    """
+    pass
+
+
+def sign_email(pub, signature, message):
+    """
+    signs a given message using the private key.
     """
     pass
 
@@ -154,7 +168,7 @@ def main():
     elif args.command == "verify-mail":
         verify_signature_email(args.pub, args.signature, args.message)
     elif args.command == "sign-mail":
-        verify_signature_email(args.pub, args.signature, args.message)
+        sign_email(args.pub, args.signature, args.message)
 
 
 if __name__ == "__main__":
