@@ -1,34 +1,41 @@
-# PythonCrypto
+
+
+### PythonCrypto
 
 A command-line tool to **sign** and **verify** messages using ECDSA (Elliptic Curve Digital Signature Algorithm) through the Python `ecdsa` library.
 
+-----
+
 ## Features
 
-- **Generate ECDSA key pairs**
-- **Sign messages** with a private key
-- **Verify signatures** with a public key
-- Handle email-specific signing and verification (ASCII-only, ignores whitespace; see email commands)
+  - **Generate ECDSA key pairs**
+  - **Sign messages** with a private key
+  - **Verify signatures** with a public key
+  - Handle email-specific signing and verification (ASCII-only, ignores whitespace; see email commands)
 
+-----
 
 ## Installation
 
-Python 3.10+ recommended. 
-Install `ecdsa` if not present:
+Python 3.6+ is required.
+
+To install this package from the local repository, run the following command in the project's root directory:
 
 ```bash
-pip install ecdsa
+pip install .
 ```
 
-Clone or copy this script.
+-----
 
 ## Usage
 
-Run the CLI script directly with Python:
+Run the CLI tool directly from your terminal using the `pythoncrypto` command.
 
 ```bash
-python PythonCrypto.py <command> [options]
+pythoncrypto <command> [options]
 ```
 
+-----
 
 ## Commands
 
@@ -37,38 +44,36 @@ python PythonCrypto.py <command> [options]
 Generates new ECDSA private and public keys.
 
 ```bash
-python PythonCrypto.py generate [--priv PRIVATE_KEY_PATH] [--pub PUBLIC_KEY_PATH]
+pythoncrypto generate [--priv PRIVATE_KEY_PATH] [--pub PUBLIC_KEY_PATH]
 ```
 
-- `--priv`: Output path for private key (default: `private.pem`)
-- `--pub`: Output path for public key (default: `public.pem`)
-
+  - `--priv`: Output path for private key (default: `private.pem`)
+  - `--pub`: Output path for public key (default: `public.pem`)
 
 ### Sign a Message
 
 Signs a message with your private key.
 
 ```bash
-python PythonCrypto.py sign <message> [--priv PRIVATE_KEY_PATH]
+pythoncrypto sign <message> [--priv PRIVATE_KEY_PATH]
 ```
-
 
 ### Verify a Signature
 
 Verifies a signature using your public key.
 
 ```bash
-python PythonCrypto.py verify <signature_base64> <message> [--pub PUBLIC_KEY_PATH]
+pythoncrypto verify <signature_base64> <message> [--pub PUBLIC_KEY_PATH]
 ```
-
 
 ### Email-Specific Commands
 
 (To be implemented)
 
-- **sign-mail:** Signs email messages (ASCII only, ignores whitespace)
-- **verify-mail:** Verifies email signatures
+  - **sign-mail:** Signs email messages (ASCII only, ignores whitespace)
+  - **verify-mail:** Verifies email signatures
 
+-----
 
 ## Output
 
@@ -82,18 +87,20 @@ Example:
 ❌ INVALID SIGNATURE.
 ```
 
+-----
 
 ## Dependencies
 
-- `ecdsa`
-- `argparse` (standard)
-- `base64`, `os`, `hashlib` (standard)
+  - `ecdsa`
 
+-----
 
 ## License
 
 GNU GPL-2.0 license
 
+-----
+
 ## Contributing
 
-Contributions and improvements are welcome! File issues or pull requests for discussion.
+Contributions and improvements are welcome\! File issues or pull requests for discussion.
